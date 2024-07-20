@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/opt/www/phpunit.xml" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.003281">
+    <testsuite name="Unit" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.003281">
+      <testsuite name="HyperfTest\Unit\Service\AttendanceServiceTest" file="/opt/www/test/Unit/Service/AttendanceServiceTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.003281">
+        <testcase name="testBatata" file="/opt/www/test/Unit/Service/AttendanceServiceTest.php" line="20" class="HyperfTest\Unit\Service\AttendanceServiceTest" classname="HyperfTest.Unit.Service.AttendanceServiceTest" assertions="1" time="0.003281"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
