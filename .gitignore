@@ -14,5 +14,5 @@ vendor/
 .vscode/
 /phpstan.neon
 /phpunit.xml
-.docker/
-.phpunit.cache/
+/.phpunit.cache
+/docker

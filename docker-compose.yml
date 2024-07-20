@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+    eventosfull:
+      container_name: eventosfull
+      build:
+        context: .
+      volumes:
+        - .:/opt/www
+      ports:
+        - 9501:9501
+      environment:
+        - APP_ENV=dev
+        - SCAN_CACHEABLE=false
+
+    db:
+      image: mysql:latest
+      container_name: db
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: api
+        MYSQL_USER: db-user
+        MYSQL_PASSWORD: root
+      ports:
+        - "3306:3306"
+      volumes:
+        - ./docker/db_data:/var/lib/mysql
+
+networks:
+  default:
+    name: microservices-project-network
