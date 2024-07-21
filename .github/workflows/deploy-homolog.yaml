@@ -1,8 +1,11 @@
 name: Deploy Application
 
 on:
-  push:
-    branches: ['main']
+  pull_request_target:
+    types:
+      - merged
+    branches:
+      - 'main'
 
 jobs:
   build:
