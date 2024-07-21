@@ -18,7 +18,7 @@ jobs:
         run: docker build -t lauroappelt/eventosfull:${{ github.event.release.tag_name }} .  
       
       - name: Start container
-        run:  docker run -d --name eventosfull lauroappelt/eventosfull
+        run:  docker run -d --name eventosfull lauroappelt/eventosfull:${{ github.event.release.tag_name }}
 
       - name: Run tests
         run: docker exec eventosfull composer test
@@ -31,7 +31,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: docker pull lauroappelt/eventosfull:latest
+        run: docker pull lauroappelt/eventosfull:${{ github.event.release.tag_name }}
       
       - name: Delete old container
         run: docker rm -f eventosfull-prod 
