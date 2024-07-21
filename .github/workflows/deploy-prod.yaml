@@ -31,4 +31,4 @@ jobs:
         run: docker rm -f eventosfull-prod 
       
       - name: Run docker container
-        run: docker run -d --name eventosfull-prod lauroappelt/eventosfull
+        run: docker run -d --name eventosfull-prod -p 9501:9501 lauroappelt/eventosfull
