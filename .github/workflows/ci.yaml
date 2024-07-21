@@ -6,10 +6,17 @@ on:
       ['master']
 
 jobs:
-  build:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Build
-        run: cp -rf .github/workflows/Dockerfile . && docker build -t hyperf .
+        run:  docker build -t hyperf .
+
+      - name: Start container
+        run:  docker run -d --name hyperf hyperf
+
+      - name: Run tests
+        run: docker exec hyperf composer test
