@@ -1,0 +1,34 @@
+name: Deploy Application
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Login to docker hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}       
+      
+      - name: Build docker image
+        run: docker build -t lauroappelt/eventosfull .  
+      
+      - name: Publish image to docker hub
+        run: docker push lauroappelt/eventosfull:latest
+
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull image from docker hub
+        run: docker pull lauroappelt/eventosfull:latest
+      
+      - name: Delete old container
+        run: docker rm -f eventosfull-prod 
+      
+      - name: Run docker container
+        run: docker run -d --name eventosfull-prod lauroappelt/eventosfull
