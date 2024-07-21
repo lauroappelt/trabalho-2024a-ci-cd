@@ -6,20 +6,14 @@ on:
       ['master']
 
 jobs:
-  build:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Build
-        run:  docker build -t hyperf ../
+        run:  docker build -t hyperf .
 
-  build-test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Build
-        run:  docker build -t hyperf ../
+      - name: Run container
+        run:  docker run --name hyperf -d -p 9501:9501 -it --privileged -u root --entrypoint /bin/sh hyperf
