@@ -2,7 +2,7 @@ name: Deploy Application
 
 on:
   release:
-    types: ['released', 'published']
+    types: ['published']
 
 jobs:
   build:
