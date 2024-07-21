@@ -16,7 +16,7 @@ jobs:
         run:  docker build -t hyperf .
 
       - name: Run container
-        run:  docker run --name hyperf -d -p 9501:9501 -it --privileged -u root --entrypoint /bin/sh hyperf
+        run:  docker run --name hyperf hyperf
 
       - name: Run tests
         run: docker exec -it hyperf composer test
