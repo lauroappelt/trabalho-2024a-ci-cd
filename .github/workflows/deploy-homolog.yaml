@@ -1,8 +1,8 @@
 name: Deploy Application
 
 on:
-  release:
-    types: ['published']
+  merge:
+    braches: ['main']
 
 jobs:
   build:
