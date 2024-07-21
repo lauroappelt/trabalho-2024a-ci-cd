@@ -1,0 +1,15 @@
+name: Continuos Integration
+
+on:
+  pull_request:
+    braches:
+      ['master']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Build
+        run: cp -rf .github/workflows/Dockerfile . && docker build -t hyperf .
