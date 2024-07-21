@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/opt/www/phpunit.xml" tests="3" assertions="11" errors="0" failures="0" skipped="0" time="0.011387">
+    <testsuite name="Unit" tests="3" assertions="11" errors="0" failures="0" skipped="0" time="0.011387">
+      <testsuite name="HyperfTest\Unit\Service\AttendanceServiceTest" file="/opt/www/test/Unit/Service/AttendanceServiceTest.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="0.010669">
+        <testcase name="testShouldCreateAttendance" file="/opt/www/test/Unit/Service/AttendanceServiceTest.php" line="33" class="HyperfTest\Unit\Service\AttendanceServiceTest" classname="HyperfTest.Unit.Service.AttendanceServiceTest" assertions="3" time="0.010669"/>
+      </testsuite>
+      <testsuite name="HyperfTest\Unit\Service\EventServiceTest" file="/opt/www/test/Unit/Service/EventServiceTest.php" tests="2" assertions="8" errors="0" failures="0" skipped="0" time="0.000719">
+        <testcase name="testShouldListAllEvents" file="/opt/www/test/Unit/Service/EventServiceTest.php" line="35" class="HyperfTest\Unit\Service\EventServiceTest" classname="HyperfTest.Unit.Service.EventServiceTest" assertions="6" time="0.000570"/>
+        <testcase name="testShouldShowUsers" file="/opt/www/test/Unit/Service/EventServiceTest.php" line="60" class="HyperfTest\Unit\Service\EventServiceTest" classname="HyperfTest.Unit.Service.EventServiceTest" assertions="2" time="0.000149"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
