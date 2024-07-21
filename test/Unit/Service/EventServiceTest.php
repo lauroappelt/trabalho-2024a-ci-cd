@@ -49,7 +49,7 @@ class EventServiceTest extends TestCase
         $events = $this->service->listAll();
 
         $event = current($events);
-        self::assertTrue(false);
+
         self::assertIsArray($events);
         self::assertArrayHasKey('id', $event);
         self::assertArrayHasKey('title', $event);
