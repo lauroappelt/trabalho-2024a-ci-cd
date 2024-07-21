@@ -22,7 +22,7 @@ class IndexController extends AbstractController
         return [
             'method' => $method,
             'message' => "Hello {$user}.",
-            'teg' => '0.0.1'
+            'teg' => '0.0.2'
         ];
     }
 }
