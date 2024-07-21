@@ -11,5 +11,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Build
-        run: cp -rf ../../Dockerfile . && docker build -t hyperf .
+        run:  docker build -t hyperf .
