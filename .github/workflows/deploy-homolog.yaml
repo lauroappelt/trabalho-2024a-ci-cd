@@ -6,7 +6,7 @@ on:
       - closed
 
 jobs:
-  if_merged:
+  build:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
@@ -29,6 +29,7 @@ jobs:
         run: docker push lauroappelt/eventosfull:hom
 
   deploy:
+    if: github.event.pull_request.merged == true
     needs: build
     runs-on: self-hosted
     steps:
