@@ -15,20 +15,26 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}       
       
       - name: Build docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/eventosfull .  
+        run: docker build -t lauroappelt/eventosfull .  
+      
+      - name: Start container
+        run:  docker run -d --name eventosfull lauroappelt/eventosfull
+
+      - name: Run tests
+        run: docker exec eventosfull composer test
       
       - name: Publish image to docker hub
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/eventosfull:${{ github.event.release.tag_name }}
+        run: docker push lauroappelt/eventosfull:${{ github.event.release.tag_name }}
 
   deploy:
     needs: build
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: docker pull ${{ secrets.DOCKER_USERNAME }}/eventosfull:latest
+        run: docker pull lauroappelt/eventosfull:latest
       
       - name: Delete old container
         run: docker rm -f eventosfull-prod 
       
       - name: Run docker container
-        run: docker run -d --name eventosfull-prod -p 9501:9501 ${{ secrets.DOCKER_USERNAME }}/eventosfull
+        run: docker run -d --name eventosfull-prod -p 9501:9501 lauroappelt/eventosfull
