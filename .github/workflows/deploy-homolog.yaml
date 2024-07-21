@@ -37,7 +37,7 @@ jobs:
         run: docker pull lauroappelt/eventosfull:hom
       
       - name: Delete old container
-        run: docker rm -f eventosfull-prod 
+        run: docker rm -f eventosfull-hom 
       
       - name: Run docker container
         run: docker run -d --name eventosfull-hom -p 9502:9501 lauroappelt/eventosfull:hom
