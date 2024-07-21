@@ -1,8 +1,8 @@
 name: Deploy Application
 
 on:
-  merge:
-    branches: ['main']
+  release:
+    types: ['published']
 
 jobs:
   build:
@@ -10,31 +10,33 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: '${{ github.event.release.tag_name }}'
       
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}       
       
       - name: Build docker image
-        run: docker build -t lauroappelt/eventosfull:hom .  
+        run: docker build -t lauroappelt/eventosfull:${{ github.event.release.tag_name }} .  
       
       - name: Start container
-        run:  docker run -d --name eventosfull lauroappelt/eventosfull:hom
+        run:  docker run -d --name eventosfull lauroappelt/eventosfull:${{ github.event.release.tag_name }}
 
       - name: Run tests
         run: docker exec eventosfull composer test
       
       - name: Publish image to docker hub
-        run: docker push lauroappelt/eventosfull:hom
+        run: docker push lauroappelt/eventosfull:${{ github.event.release.tag_name }}
 
   deploy:
     needs: build
     runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
-        run: docker pull lauroappelt/eventosfull:hom
+        run: docker pull lauroappelt/eventosfull:${{ github.event.release.tag_name }}
       
       - name: Delete old container
         run: docker rm -f eventosfull-prod 
       
       - name: Run docker container
-        run: docker run -d --name eventosfull-prod -p 9502:9501 lauroappelt/eventosfull:hom
+        run: docker run -d --name eventosfull-prod -p 9501:9501 lauroappelt/eventosfull:${{ github.event.release.tag_name }}
