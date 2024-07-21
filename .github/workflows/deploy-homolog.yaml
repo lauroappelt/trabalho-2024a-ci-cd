@@ -1,8 +1,8 @@
 name: Deploy Application
 
 on:
-  merge:
-    braches: ['main']
+  push:
+    branches: ['main']
 
 jobs:
   build:
