@@ -23,4 +23,4 @@ jobs:
         run: docker exec hyperf composer test
 
       - name: Teste
-        run: echo ${{ vars.DB_USER}}
+        run: echo ${{ vars.DB_USERNAME}}
