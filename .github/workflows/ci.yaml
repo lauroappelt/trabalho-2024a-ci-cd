@@ -50,7 +50,7 @@ jobs:
       - name: Start container
         run:  docker run -d --name hyperf lauroappelt/eventosfull:${{ github.event.pull_request.head.sha }}
 
-      - name: Run tests
+      - name: Run cs
         run: docker exec hyperf composer cs-check
 
   SAST:
@@ -66,5 +66,5 @@ jobs:
       - name: Start container
         run:  docker run -d --name hyperf lauroappelt/eventosfull:${{ github.event.pull_request.head.sha }}
 
-      - name: Run tests
+      - name: Run sast
         run: docker exec hyperf composer analyse

@@ -18,19 +18,20 @@ use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\Logger\Logger;
 use Hyperf\Logger\LoggerFactory;
 use Hyperf\Validation\Contract\ValidatorFactoryInterface;
+use Psr\Log\LoggerInterface;
 
 class UserController
 {
-    private Logger $logger;
+    // private LoggerInterface $logger;
 
     private ValidatorFactoryInterface $validationFactory;
 
     public function __construct(
-        LoggerFactory $loggerFactory,
+        // LoggerFactory $loggerFactory,
         ValidatorFactoryInterface $validatorFactoryInterface,
         private UserService $userService
     ) {
-        $this->logger = $loggerFactory->get();
+        // $this->logger = $loggerFactory->get();
         $this->validationFactory = $validatorFactoryInterface;
     }
 

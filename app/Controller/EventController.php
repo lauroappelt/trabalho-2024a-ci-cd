@@ -17,10 +17,11 @@ use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\Logger\Logger;
 use Hyperf\Logger\LoggerFactory;
+use Psr\Log\LoggerInterface;
 
 class EventController
 {
-    private Logger $logger;
+    private LoggerInterface $logger;
 
     public function __construct(
         private EventService $eventService,

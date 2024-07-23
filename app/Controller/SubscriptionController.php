@@ -10,12 +10,13 @@ use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\Logger\Logger;
 use Hyperf\Logger\LoggerFactory;
 use Hyperf\Validation\Contract\ValidatorFactoryInterface;
+use Psr\Log\LoggerInterface;
 
 class SubscriptionController
 {
     private ValidatorFactoryInterface $validatorFactory;
 
-    private Logger $logger;
+    private LoggerInterface $logger;
 
     public function __construct(
         private SubscriptionService $subscriptionService,
