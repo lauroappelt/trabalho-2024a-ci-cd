@@ -42,7 +42,7 @@ class EventController
     {
         $token = $requestInterface->header('api-token');
 
-        $event = $this->eventService->showUsers((int) $id);
+        $event = $this->eventService->showUsersOfEvent((int) $id);
 
         if (empty($event)) {
             $this->logger->info('Event not found.', ['event_id' => $id]);

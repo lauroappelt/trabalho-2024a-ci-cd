@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="/opt/www/phpunit.xml" tests="3" assertions="11" errors="0" failures="0" skipped="0" time="0.010789">
-    <testsuite name="Unit" tests="3" assertions="11" errors="0" failures="0" skipped="0" time="0.010789">
-      <testsuite name="HyperfTest\Unit\Service\AttendanceServiceTest" file="/opt/www/test/Unit/Service/AttendanceServiceTest.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="0.010041">
-        <testcase name="testShouldCreateAttendance" file="/opt/www/test/Unit/Service/AttendanceServiceTest.php" line="33" class="HyperfTest\Unit\Service\AttendanceServiceTest" classname="HyperfTest.Unit.Service.AttendanceServiceTest" assertions="3" time="0.010041"/>
+  <testsuite name="/opt/www/phpunit.xml" tests="7" assertions="21" errors="0" failures="0" skipped="0" time="0.012644">
+    <testsuite name="Unit" tests="7" assertions="21" errors="0" failures="0" skipped="0" time="0.012644">
+      <testsuite name="HyperfTest\Unit\Service\AttendanceServiceTest" file="/opt/www/test/Unit/Service/AttendanceServiceTest.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="0.010610">
+        <testcase name="testShouldCreateAttendance" file="/opt/www/test/Unit/Service/AttendanceServiceTest.php" line="33" class="HyperfTest\Unit\Service\AttendanceServiceTest" classname="HyperfTest.Unit.Service.AttendanceServiceTest" assertions="3" time="0.010610"/>
       </testsuite>
-      <testsuite name="HyperfTest\Unit\Service\EventServiceTest" file="/opt/www/test/Unit/Service/EventServiceTest.php" tests="2" assertions="8" errors="0" failures="0" skipped="0" time="0.000748">
-        <testcase name="testShouldListAllEvents" file="/opt/www/test/Unit/Service/EventServiceTest.php" line="33" class="HyperfTest\Unit\Service\EventServiceTest" classname="HyperfTest.Unit.Service.EventServiceTest" assertions="6" time="0.000588"/>
-        <testcase name="testShouldShowUsers" file="/opt/www/test/Unit/Service/EventServiceTest.php" line="57" class="HyperfTest\Unit\Service\EventServiceTest" classname="HyperfTest.Unit.Service.EventServiceTest" assertions="2" time="0.000160"/>
+      <testsuite name="HyperfTest\Unit\Service\EventServiceTest" file="/opt/www/test/Unit/Service/EventServiceTest.php" tests="2" assertions="9" errors="0" failures="0" skipped="0" time="0.000966">
+        <testcase name="testShouldListAllEvents" file="/opt/www/test/Unit/Service/EventServiceTest.php" line="33" class="HyperfTest\Unit\Service\EventServiceTest" classname="HyperfTest.Unit.Service.EventServiceTest" assertions="6" time="0.000593"/>
+        <testcase name="testShouldShowEventWithUsers" file="/opt/www/test/Unit/Service/EventServiceTest.php" line="57" class="HyperfTest\Unit\Service\EventServiceTest" classname="HyperfTest.Unit.Service.EventServiceTest" assertions="3" time="0.000372"/>
+      </testsuite>
+      <testsuite name="HyperfTest\Unit\Service\SubscriptionServiceTest" file="/opt/www/test/Unit/Service/SubscriptionServiceTest.php" tests="4" assertions="9" errors="0" failures="0" skipped="0" time="0.001068">
+        <testcase name="testShouldCreateSubscription" file="/opt/www/test/Unit/Service/SubscriptionServiceTest.php" line="30" class="HyperfTest\Unit\Service\SubscriptionServiceTest" classname="HyperfTest.Unit.Service.SubscriptionServiceTest" assertions="2" time="0.000370"/>
+        <testcase name="testShouldReturnSubscriptionById" file="/opt/www/test/Unit/Service/SubscriptionServiceTest.php" line="46" class="HyperfTest\Unit\Service\SubscriptionServiceTest" classname="HyperfTest.Unit.Service.SubscriptionServiceTest" assertions="2" time="0.000133"/>
+        <testcase name="testShouldReturnEmptyIfSubscriptionNotExists" file="/opt/www/test/Unit/Service/SubscriptionServiceTest.php" line="62" class="HyperfTest\Unit\Service\SubscriptionServiceTest" classname="HyperfTest.Unit.Service.SubscriptionServiceTest" assertions="3" time="0.000271"/>
+        <testcase name="testShouldDeleteSubscription" file="/opt/www/test/Unit/Service/SubscriptionServiceTest.php" line="74" class="HyperfTest\Unit\Service\SubscriptionServiceTest" classname="HyperfTest.Unit.Service.SubscriptionServiceTest" assertions="2" time="0.000293"/>
       </testsuite>
     </testsuite>
   </testsuite>

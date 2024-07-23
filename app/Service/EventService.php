@@ -18,7 +18,7 @@ class EventService
         return $this->eventRepository->all();
     }
 
-    public function showUsers(int $eventId): ?array
+    public function showUsersOfEvent(int $eventId): ?array
     {
         return $this->eventRepository->find($eventId);
     }

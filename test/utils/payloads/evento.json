@@ -1,0 +1,36 @@
+{
+    "id": 1,
+    "title": "Evento dubom",
+    "description": "Evento muito bom, esse e dubom mesmo",
+    "date": "2024-05-01",
+    "subscriptions": [
+        {
+            "id": 16,
+            "title": "Evento dubom",
+            "description": "Evento muito bom, esse e dubom mesmo",
+            "date": "2024-05-01",
+            "user_id": 16,
+            "event_id": 1,
+            "created_at": null,
+            "updated_at": null,
+            "name": "marcio balas",
+            "cpf": "00103456710",
+            "email": "marcio@gmail.com",
+            "password": "aa1bf4646de67fd9086cf6c79007026c"
+        },
+        {
+            "id": 17,
+            "title": "Evento dubom",
+            "description": "Evento muito bom, esse e dubom mesmo",
+            "date": "2024-05-01",
+            "user_id": 17,
+            "event_id": 1,
+            "created_at": null,
+            "updated_at": null,
+            "name": "lauro appelt",
+            "cpf": "00103456711",
+            "email": "lauro@gmail.com",
+            "password": "aa1bf4646de67fd9086cf6c79007026c"
+        }
+    ]
+}
