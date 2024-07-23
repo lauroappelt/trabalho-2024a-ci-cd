@@ -52,4 +52,4 @@ jobs:
           lauroappelt/eventosfull:${{ github.event.release.tag_name }}
 
       - name: Run migration
-        run: docker exec eventosfull-hom php bin/hyperf.php migrate
+        run: docker exec eventosfull-prod php bin/hyperf.php migrate
