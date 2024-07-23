@@ -7,7 +7,6 @@ namespace App\Controller;
 use App\Service\SubscriptionService;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use Hyperf\Logger\Logger;
 use Hyperf\Logger\LoggerFactory;
 use Hyperf\Validation\Contract\ValidatorFactoryInterface;
 use Psr\Log\LoggerInterface;

@@ -15,7 +15,6 @@ namespace App\Controller;
 use App\Service\EventService;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use Hyperf\Logger\Logger;
 use Hyperf\Logger\LoggerFactory;
 use Psr\Log\LoggerInterface;
 
