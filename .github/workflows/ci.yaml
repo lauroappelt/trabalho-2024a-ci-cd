@@ -2,8 +2,8 @@ name: Continuos Integration
 
 on:
   pull_request:
-    braches:
-      ['master']
+    branches:
+      ['main']
 
 jobs:
   unit-tests:
