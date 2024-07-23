@@ -4,7 +4,7 @@ declare(strict_types=1);
 /**
  * This file is part of Hyperf.
  *
- * @link     https://www.hyperf.io
+ * @see     https://www.hyperf.io
  * @document https://hyperf.wiki
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
@@ -18,7 +18,6 @@ use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\Logger\Logger;
 use Hyperf\Logger\LoggerFactory;
 use Hyperf\Validation\Contract\ValidatorFactoryInterface;
-use Hyperf\Di\Annotation\Inject;
 
 class UserController
 {
@@ -43,7 +42,7 @@ class UserController
                 'name' => 'required|string|max:255',
                 'email' => 'required|email|max:255|unique:users,email',
                 'cpf' => 'required|string|size:11|unique:users,cpf',
-                'password' => 'required|string|max:255'
+                'password' => 'required|string|max:255',
             ],
         );
 
@@ -54,7 +53,5 @@ class UserController
         $user = $this->userService->createUser($requestInterface->all());
 
         return $responseInterface->json($user);
-
-        return;
     }
 }

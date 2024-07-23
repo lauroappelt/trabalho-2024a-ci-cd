@@ -20,3 +20,18 @@ jobs:
 
       - name: Run tests
         run: docker exec hyperf composer test
+
+  cs-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build
+        run:  docker build -t hyperf .
+
+      - name: Start container
+        run:  docker run -d --name hyperf hyperf
+
+      - name: Run tests
+        run: docker exec hyperf composer cs-check

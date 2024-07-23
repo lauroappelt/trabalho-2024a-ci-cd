@@ -1,14 +1,16 @@
 <?php
 
 declare(strict_types=1);
-/**
+use Hyperf\AsyncQueue\Driver\RedisDriver;
+
+/*
  * This file is part of the extension library for Hyperf.
  *
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
     'default' => [
-        'driver' => Hyperf\AsyncQueue\Driver\RedisDriver::class,
+        'driver' => RedisDriver::class,
         'redis' => [
             'pool' => 'default',
         ],
@@ -22,7 +24,7 @@ return [
         ],
     ],
     'emails' => [
-        'driver' => Hyperf\AsyncQueue\Driver\RedisDriver::class,
+        'driver' => RedisDriver::class,
         'redis' => [
             'pool' => 'default',
         ],

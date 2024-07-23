@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Service\AttendanceService;
@@ -13,7 +15,6 @@ class AttendanceController
         private AttendanceService $attendanceService,
         private ValidatorFactoryInterface $validatorFactory
     ) {
-
     }
 
     public function createAttendance(RequestInterface $requestInterface, ResponseInterface $responseInterface)

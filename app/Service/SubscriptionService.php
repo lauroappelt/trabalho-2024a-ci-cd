@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\Service;
 
 use App\Repository\SubscriptionRepository;
@@ -7,9 +10,7 @@ class SubscriptionService
 {
     public function __construct(
         private SubscriptionRepository $subscriptionRepository
-    )
-    {
-        
+    ) {
     }
 
     public function createSubscription(array $subscriptionData): array

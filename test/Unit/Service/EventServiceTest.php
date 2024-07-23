@@ -6,8 +6,6 @@ namespace HyperfTest\Unit\Service;
 
 use App\Repository\EventRepository;
 use App\Service\EventService;
-use Mockery\Mock;
-use Mockery\MockInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -42,8 +40,7 @@ class EventServiceTest extends TestCase
                     'title' => 'ifwhefwqifegwf',
                     'description' => 'ishjbdakbdksad',
                     'date' => date('Y-m-d'),
-                ]
-
+                ],
             ]);
 
         $events = $this->service->listAll();

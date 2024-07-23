@@ -1,16 +1,16 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\Repository;
 
 use Hyperf\DbConnection\Db;
-use Hyperf\Di\Exception\NotFoundException;
 
 class EventRepository
 {
     public function __construct(
         private Db $Db
-    )
-    {
-        
+    ) {
     }
 
     public function all(): array
