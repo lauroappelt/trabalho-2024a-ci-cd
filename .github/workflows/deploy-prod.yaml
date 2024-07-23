@@ -36,6 +36,9 @@ jobs:
       - name: Pull image from docker hub
         run: docker pull lauroappelt/eventosfull:${{ github.event.release.tag_name }}
       
+      - name: Stop container
+        run: docker stop eventosfull-prod
+
       - name: Delete old container
         run: docker rm -f eventosfull-prod 
 
