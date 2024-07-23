@@ -8,7 +8,6 @@ on:
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
-    environment: hom
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -21,6 +20,3 @@ jobs:
 
       - name: Run tests
         run: docker exec hyperf composer test
-
-      - name: Teste
-        run: echo ${{ vars.DB_USERNAME}}
