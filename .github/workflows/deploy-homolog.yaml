@@ -41,4 +41,13 @@ jobs:
         run: docker rm -f eventosfull-hom 
       
       - name: Run docker container
-        run: docker run -d --name eventosfull-hom --network eventosfull-net -p 9502:9501 lauroappelt/eventosfull:hom
+        run: docker run -d --name eventosfull-hom \
+          --network eventosfull-net \
+          -p 9502:9501 \
+          -e DB_DRIVER=${{vars.DB_DRIVER}} \
+          -e DB_HOST=${{vars.DB_HOST}} \
+          -e DB_PORT=${{vars.DB_PORT}} \
+          -e DB_DATABASE=${{vars.DB_DATABASE}} \
+          -e DB_USERNAME=${{vars.DB_USERNAME}} \
+          -e DB_PASSWORD=${{vars.DB_PASSWORD}} \
+          lauroappelt/eventosfull:hom 
