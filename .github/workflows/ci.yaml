@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Composer install
-        run: php-actions/composer@v6
+        uses: php-actions/composer@v6
 
       - name: CS
         uses: php-actions/phpcs@v1
