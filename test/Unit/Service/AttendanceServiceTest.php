@@ -17,7 +17,7 @@ class AttendanceServiceTest extends TestCase
 {
     private AttendanceService $service;
 
-    private MockInterface|AttendanceRepository $mockRepository;
+    private AttendanceRepository|MockInterface $mockRepository;
 
     public function setUp(): void
     {
@@ -33,12 +33,12 @@ class AttendanceServiceTest extends TestCase
     public function testShouldCreateAttendance(): void
     {
         $data = [
-            'subscription_id' => 1
+            'subscription_id' => 1,
         ];
 
         $return = [
             'id' => 1,
-            'subscription_id' => 1
+            'subscription_id' => 1,
         ];
 
         $this->mockRepository->expects($this->once())

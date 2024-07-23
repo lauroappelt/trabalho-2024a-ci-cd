@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\Service;
 
 use App\Repository\EventRepository;
@@ -6,10 +9,8 @@ use App\Repository\EventRepository;
 class EventService
 {
     public function __construct(
-        private EventRepository $eventRepository 
-    )
-    {
-        
+        private EventRepository $eventRepository
+    ) {
     }
 
     public function listAll(): array

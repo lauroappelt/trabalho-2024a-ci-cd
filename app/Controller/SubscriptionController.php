@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Service\SubscriptionService;
@@ -72,7 +74,7 @@ class SubscriptionController
     {
         $deleted = $this->subscriptionService->delete((int) $id);
 
-        if (!$deleted) {
+        if (! $deleted) {
             return $responseInterface->json([])->withStatus(400);
         }
     }

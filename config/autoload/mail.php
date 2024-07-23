@@ -1,6 +1,8 @@
 <?php
 
 declare(strict_types=1);
+use OnixSystemsPHP\HyperfMailer\Transport\LogTransport;
+
 /**
  * This file is part of the extension library for Hyperf.
  *
@@ -105,7 +107,7 @@ return [
         ],
 
         'log' => [
-            'transport' => \OnixSystemsPHP\HyperfMailer\Transport\LogTransport::class,
+            'transport' => LogTransport::class,
             'options' => [
                 'name' => 'mail.local',
                 'group' => 'default',
