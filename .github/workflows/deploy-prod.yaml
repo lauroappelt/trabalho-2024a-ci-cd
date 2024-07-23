@@ -41,3 +41,6 @@ jobs:
       
       - name: Run docker container
         run: docker run -d --name eventosfull-prod -p 9501:9501 --network eventosfull-net lauroappelt/eventosfull:${{ github.event.release.tag_name }}
+
+      - name: Run migration
+        run: docker exec eventosfull-hom php bin/hyperf.php migrate
