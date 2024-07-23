@@ -20,3 +20,14 @@ jobs:
 
       - name: Run tests
         run: docker exec hyperf composer test
+
+  cs-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Teste
+        uses: chindit/actions-phpcs@master
+        with:
+          dir: app/
