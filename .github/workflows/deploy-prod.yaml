@@ -38,9 +38,18 @@ jobs:
       
       - name: Delete old container
         run: docker rm -f eventosfull-prod 
-      
+
       - name: Run docker container
-        run: docker run -d --name eventosfull-prod -p 9501:9501 --network eventosfull-net lauroappelt/eventosfull:${{ github.event.release.tag_name }}
+        run: docker run -d --name eventosfull-prod 
+          --network eventosfull-net 
+          -p 9501:9501 
+          -e DB_DRIVER=${{vars.DB_DRIVER}} 
+          -e DB_HOST=${{vars.DB_HOST}} 
+          -e DB_PORT=${{vars.DB_PORT}} 
+          -e DB_DATABASE=${{vars.DB_DATABASE}} 
+          -e DB_USERNAME=${{vars.DB_USERNAME}} 
+          -e DB_PASSWORD=${{vars.DB_PASSWORD}} 
+          lauroappelt/eventosfull:${{ github.event.release.tag_name }}
 
       - name: Run migration
         run: docker exec eventosfull-hom php bin/hyperf.php migrate
