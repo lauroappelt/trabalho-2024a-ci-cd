@@ -50,4 +50,7 @@ jobs:
           -e DB_DATABASE=${{vars.DB_DATABASE}} 
           -e DB_USERNAME=${{vars.DB_USERNAME}} 
           -e DB_PASSWORD=${{vars.DB_PASSWORD}} 
-          lauroappelt/eventosfull:hom 
+          lauroappelt/eventosfull:hom
+
+      - name: Run migration
+        run: docker exec eventosfull-hom php bin/hyperf.php migrate
