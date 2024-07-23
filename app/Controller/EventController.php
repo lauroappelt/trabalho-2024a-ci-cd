@@ -33,10 +33,6 @@ class EventController
     {
         $token = $requestInterface->header('api-token');
 
-        if ($token != '71f6ac3385ce284152a64208521c592b') {
-            return $responseInterface->json([])->withStatus(401);
-        }
-
         $events = $this->eventService->listAll();
 
         return $responseInterface->json($events);
@@ -45,10 +41,6 @@ class EventController
     public function showUsers($id, RequestInterface $requestInterface, ResponseInterface $responseInterface)
     {
         $token = $requestInterface->header('api-token');
-
-        if ($token != '71f6ac3385ce284152a64208521c592b') {
-            return $responseInterface->json([])->withStatus(401);
-        }
 
         $event = $this->eventService->showUsers((int) $id);
 
