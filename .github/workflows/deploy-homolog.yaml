@@ -32,6 +32,7 @@ jobs:
     if: github.event.pull_request.merged == true
     needs: build
     runs-on: self-hosted
+    environment: qa
     steps:
       - name: Pull image from docker hub
         run: docker pull lauroappelt/eventosfull:hom
