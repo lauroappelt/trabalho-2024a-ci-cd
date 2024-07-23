@@ -23,4 +23,4 @@ jobs:
         run: docker exec hyperf composer test
 
       - name: Teste
-        run: echo env.APP_NAME
+        run: echo $env.APP_NAME
