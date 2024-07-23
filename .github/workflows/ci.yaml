@@ -27,7 +27,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Teste
-        uses: chindit/actions-phpcs@master
+      - name: Composer install
+        run: php-actions/composer@v6
+
+      - name: CS
+        uses: php-actions/phpcs@v1
         with:
-          dir: app/
+          path: app/
+          standard: phpcs.xml
