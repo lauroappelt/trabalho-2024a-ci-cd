@@ -27,11 +27,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Composer install
-        uses: php-actions/composer@v6
+      - name: Build
+        run:  docker build -t hyperf .
 
-      - name: CS
-        uses: php-actions/phpcs@v1
-        with:
-          path: app/
-          standard: phpcs.xml
+      - name: Start container
+        run:  docker run -d --name hyperf hyperf
+
+      - name: Run tests
+        run: docker exec hyperf composer cs-check
