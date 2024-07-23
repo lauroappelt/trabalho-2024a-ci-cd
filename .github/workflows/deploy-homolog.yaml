@@ -37,6 +37,9 @@ jobs:
       - name: Pull image from docker hub
         run: docker pull lauroappelt/eventosfull:hom
       
+      - name: Stop container
+        run: docker stop eventosfull-hom
+
       - name: Delete old container
         run: docker rm -f eventosfull-hom 
       
