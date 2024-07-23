@@ -39,4 +39,4 @@ jobs:
         run: docker rm -f eventosfull-prod 
       
       - name: Run docker container
-        run: docker run -d --name eventosfull-prod -p 9501:9501 lauroappelt/eventosfull:${{ github.event.release.tag_name }}
+        run: docker run -d --name eventosfull-prod -p 9501:9501 --network eventosfull-net lauroappelt/eventosfull:${{ github.event.release.tag_name }}
