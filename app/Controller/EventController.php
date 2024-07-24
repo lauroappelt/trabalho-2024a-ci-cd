@@ -19,7 +19,7 @@ use Psr\Log\LoggerInterface;
 
 class EventController
 {
-    private LoggerInterface $logger;
+    // private LoggerInterface $logger;
 
     public function __construct(
         private EventService $eventService,
