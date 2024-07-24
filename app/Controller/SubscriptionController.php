@@ -29,9 +29,6 @@ class SubscriptionController
     {
         $token = $requestInterface->header('api-token');
 
-        if ($token != '71f6ac3385ce284152a64208521c592b') {
-            return $responseInterface->json([])->withStatus(401);
-        }
 
         $validator = $this->validatorFactory->make(
             $requestInterface->all(),
@@ -54,9 +51,6 @@ class SubscriptionController
     {
         $token = $requestInterface->header('api-token');
 
-        if ($token != '71f6ac3385ce284152a64208521c592b') {
-            return $responseInterface->json([])->withStatus(401);
-        }
 
         $subscription = $this->subscriptionService->showSubscription((int) $id);
 
