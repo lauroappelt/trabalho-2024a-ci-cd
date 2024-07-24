@@ -15,7 +15,6 @@ namespace App\Controller;
 use App\Service\EventService;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use Hyperf\Logger\LoggerFactory;
 use Psr\Log\LoggerInterface;
 
 class EventController
@@ -24,9 +23,7 @@ class EventController
 
     public function __construct(
         private EventService $eventService,
-        LoggerFactory $loggerFactory
     ) {
-        $this->logger = $loggerFactory->get();
     }
 
     public function index(RequestInterface $requestInterface, ResponseInterface $responseInterface)
@@ -45,7 +42,6 @@ class EventController
         $event = $this->eventService->showUsersOfEvent((int) $id);
 
         if (empty($event)) {
-            $this->logger->info('Event not found.', ['event_id' => $id]);
             return $responseInterface->json([])->withStatus(404);
         }
 
