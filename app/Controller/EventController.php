@@ -31,6 +31,9 @@ class EventController
         $token = $requestInterface->header('api-token');
 
         $events = $this->eventService->listAll();
+        foreach ($events as $event) {
+            $event->cor = 'vermelho';
+        }
 
         return $responseInterface->json($events);
     }
