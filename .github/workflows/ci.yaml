@@ -21,10 +21,10 @@ jobs:
       - name: Start container
         run:  docker run -d --name hyperf lauroappelt/eventosfull:${{ github.event.pull_request.head.sha }}
 
-      - name: Run tests
+      - name: unit-tests
         run: docker exec hyperf composer test
         
-      - name: Run cs
+      - name: cd-check
         run: docker exec hyperf composer cs-check
 
       - name: Run sast
