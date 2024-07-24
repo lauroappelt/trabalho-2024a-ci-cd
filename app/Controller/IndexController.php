@@ -29,7 +29,7 @@ class IndexController extends AbstractController
         return [
             'method' => $method,
             'message' => "Hello {$user}.",
-            'teg' => '0.0.4',
+            'tag' => '0.0.10',
             'config' => $this->config->get('databases'),
         ];
     }

@@ -54,14 +54,22 @@ class EventServiceTest extends TestCase
         self::assertArrayHasKey('date', $event);
     }
 
-    public function testShouldShowUsers(): void
+    public function testShouldShowEventWithUsers(): void
     {
         $this->mockRepository->expects($this->once())
             ->method('find')
-            ->willReturn([]);
+            ->willReturn(
+                json_decode(file_get_contents(BASE_PATH . '/test/utils/payloads/evento.json'), true)
+            );
 
-        $users = $this->service->showUsers(1);
+        $eventWithUsers = $this->service->showUsersOfEvent(1);
 
-        self::assertIsArray($users);
+        self::assertIsArray($eventWithUsers);
+        self::arrayHasKey('id', $eventWithUsers);
+        self::arrayHasKey('title', $eventWithUsers);
+        self::arrayHasKey('description', $eventWithUsers);
+        
+        self::arrayHasKey('subscriptions', $eventWithUsers);
+        self::assertIsArray($eventWithUsers['subscriptions']);
     }
 }

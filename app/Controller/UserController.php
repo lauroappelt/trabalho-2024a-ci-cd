@@ -15,22 +15,16 @@ namespace App\Controller;
 use App\Service\UserService;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use Hyperf\Logger\Logger;
-use Hyperf\Logger\LoggerFactory;
 use Hyperf\Validation\Contract\ValidatorFactoryInterface;
 
 class UserController
 {
-    private Logger $logger;
-
     private ValidatorFactoryInterface $validationFactory;
 
     public function __construct(
-        LoggerFactory $loggerFactory,
         ValidatorFactoryInterface $validatorFactoryInterface,
         private UserService $userService
     ) {
-        $this->logger = $loggerFactory->get();
         $this->validationFactory = $validatorFactoryInterface;
     }
 
@@ -52,6 +46,6 @@ class UserController
 
         $user = $this->userService->createUser($requestInterface->all());
 
-        return $responseInterface->json($user);
+        return $responseInterface->json($user)->withStatus(201);
     }
 }

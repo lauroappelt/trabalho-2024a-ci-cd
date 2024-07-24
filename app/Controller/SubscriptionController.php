@@ -7,33 +7,22 @@ namespace App\Controller;
 use App\Service\SubscriptionService;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use Hyperf\Logger\Logger;
-use Hyperf\Logger\LoggerFactory;
 use Hyperf\Validation\Contract\ValidatorFactoryInterface;
 
 class SubscriptionController
 {
     private ValidatorFactoryInterface $validatorFactory;
 
-    private Logger $logger;
-
     public function __construct(
         private SubscriptionService $subscriptionService,
         ValidatorFactoryInterface $validatorFactory,
-        LoggerFactory $loggerFactory
     ) {
         $this->validatorFactory = $validatorFactory;
-
-        $this->logger = $loggerFactory->get();
     }
 
     public function createSubscription(RequestInterface $requestInterface, ResponseInterface $responseInterface)
     {
         $token = $requestInterface->header('api-token');
-
-        if ($token != '71f6ac3385ce284152a64208521c592b') {
-            return $responseInterface->json([])->withStatus(401);
-        }
 
         $validator = $this->validatorFactory->make(
             $requestInterface->all(),
@@ -56,14 +45,9 @@ class SubscriptionController
     {
         $token = $requestInterface->header('api-token');
 
-        if ($token != '71f6ac3385ce284152a64208521c592b') {
-            return $responseInterface->json([])->withStatus(401);
-        }
-
         $subscription = $this->subscriptionService->showSubscription((int) $id);
 
         if (empty($subscription)) {
-            $this->logger->info('Subscription not foind', ['subscription_id' => $id]);
             return $responseInterface->json([])->withStatus(404);
         }
 
@@ -77,5 +61,7 @@ class SubscriptionController
         if (! $deleted) {
             return $responseInterface->json([])->withStatus(400);
         }
+
+        return $responseInterface->json([]);
     }
 }

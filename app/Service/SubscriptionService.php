@@ -25,6 +25,7 @@ class SubscriptionService
 
     public function delete(int $subscriptionId): bool
     {
-        return $this->subscriptionRepository->delete($subscriptionId);
+        $this->subscriptionRepository->delete($subscriptionId);
+        return true;
     }
 }

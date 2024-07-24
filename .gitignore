@@ -16,3 +16,4 @@ vendor/
 /phpunit.xml
 /.phpunit.cache
 /docker
+/test/reports

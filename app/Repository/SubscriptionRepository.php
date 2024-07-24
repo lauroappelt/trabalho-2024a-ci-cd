@@ -35,6 +35,7 @@ class SubscriptionRepository
 
     public function delete(int $subscriptionId): bool
     {
-        return $this->db->table('subscriptions')->delete($subscriptionId);
+        $this->db->table('subscriptions')->delete($subscriptionId);
+        return true;
     }
 }
