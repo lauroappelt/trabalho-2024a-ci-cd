@@ -3,12 +3,14 @@
         "id": 1,
         "title": "Evento dubom",
         "description": "Evento muito bom, esse e dubom mesmo",
-        "date": "2024-05-01"
+        "date": "2024-05-01",
+        "cor":"vermelho"
     },
     {
         "id": 2,
         "title": "Evento rarro de acontecer",
         "description": "e rarro mas acontece muito",
-        "date": "2024-05-02"
+        "date": "2024-05-02",
+        "cor":"vermelho"
     }
 ]
