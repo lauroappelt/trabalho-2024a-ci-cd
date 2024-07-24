@@ -79,4 +79,24 @@ class EventControllerTest extends TestCase
         self::assertSame($event, json_decode($response->getBody()->getContents(), true));
         self::assertSame(200, $response->getStatusCode());
     }
+
+    public function testEventNotExists(): void
+    {
+        $container = ApplicationContext::getContainer();
+
+        $responseMock = $container->make(
+            Response::class,
+            [$container->make(ServerResponse::class)]
+        );
+
+        $requestMock = $this->createMock(Request::class);
+
+        $this->mockService->expects($this->once())
+            ->method('showUsersOfEvent')
+            ->willReturn([]);
+
+        $response = $this->controller->showUsers(1, $requestMock, $responseMock);
+
+        self::assertSame(404, $response->getStatusCode());
+    }
 }
